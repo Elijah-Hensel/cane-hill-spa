@@ -2,26 +2,351 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+/* reset */
+*,
+:before,
+:after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+:root {
+  .awssld {
+    --organic-arrow-color: rgba(173, 255, 8, 0.987);
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
+/* styles */
+html {
+  scroll-behavior: smooth;
+}
+
+#hero-home {
+  background-image: url("./assets/images/hero-image.jpg");
+}
+
+#hero-merch {
+  background-image: url("./assets/images/merch.jpg");
+}
+
+#hero-merch button {
+  animation: jump-shaking 5s infinite;
+}
+#hero-merch button:hover {
+  animation: buttonColor 0.5s linear;
+}
+
+.hide {
+  display: none;
+}
+
+.page__style {
+  background: #000;
+  font-family: OpenSans-Regular, sans-serif;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  margin: auto auto auto;
+  overflow: hidden;
+}
+
+.bottom {
+  position: absolute;
+  /* top: 100vh; */
+  height: 100vh;
+  width: 100vw;
+  background: rgba(170, 255, 0, 0.616);
+  z-index: 1;
+}
+
+.overlay {
+  background: transparent;
+}
+
+.page__description {
+  color: #ffffff;
+  font-weight: 300;
+  text-align: center;
+}
+
+.page__style h1 {
+  font-weight: 300;
+  margin-top: 200px;
+  margin-bottom: 30px;
+}
+
+.btn_nav,
+.btn_nav_regular {
   background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    to right,
+    rgba(170, 255, 0, 0.616) 50%,
+    transparent 50%
+  );
+  background-position: right bottom;
+  background-size: 200% 100%;
+  transition: all 0.5s ease-out;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 10px 15px;
+  margin-right: 20px;
+}
+
+.btn_nav:hover,
+.btn_nav_regular:hover {
+  background-position: left bottom;
+}
+
+.btn_nav:focus,
+.btn_nav:active,
+.btn_nav_regular:focus,
+.btn_nav_regular:active {
+  outline: none;
+}
+
+.btn_merch {
+  background-color: rgba(170, 255, 0, 0.616);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 10px 15px;
+  margin-right: 20px;
+}
+
+.btn_merch:hover {
+  background: rgba(173, 255, 8, 0.987);
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Animation class */
+.animate_content {
+  animation: animate 3s ease;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero {
+  height: 100%;
+  width: 100vw;
+  background-size: 125%;
+  background-position: 60% 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.page {
+  /* position: fixed; */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.music_player_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80%;
+  margin-top: 5em;
+}
+
+.music_player {
+  width: 60%;
+}
+
+.info {
+  padding: 1em;
+  font-family: "Roboto", sans-serif;
+  line-height: 1.1;
+  font-size: 2.2em;
+  letter-spacing: 0.1em;
+}
+
+.float_right {
+  float: right;
+}
+
+.modal {
+  overflow: hidden;
+}
+
+.slider {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+}
+
+.slider--content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+}
+
+.slider--feature {
+  text-align: center;
+}
+
+.feature--title {
+  font-size: 2.5rem;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.feature--text {
+  font-size: 1rem;
+  color: #fff;
+  margin: 1rem 0;
+}
+
+.slider__btn-right,
+.slider__btn-left {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 4rem;
+  color: #eee;
+  padding: 0 1rem;
+  cursor: pointer;
+  transition: transform 0.1s ease-in-out;
+}
+
+.feature__btn {
+  background: rgba(173, 255, 8, 0.987);
+  text-transform: uppercase;
+  border: none;
+  color: rgba(173, 255, 8, 0.987);
+  border: 1px solid rgba(173, 255, 8, 0.987);
+  outline: none;
+  font-weight: 700;
+  padding: 0.8rem 2rem;
+  cursor: pointer;
+}
+
+.awssld__controls__arrow-right {
+  color: rgba(173, 255, 8, 0.987);
+}
+
+.slider__btn-left:hover,
+.slider__btn-right:hover {
+  transform: scale(0.95);
+}
+
+.fadeIn {
+  z-index: 10;
+  animation: fadeIn 0.5s;
+}
+
+.oversize {
+  height: 175%;
+  width: 175%;
+}
+
+@keyframes jump-shaking {
+  0% {
+    transform: translateX(0);
+  }
+  5% {
+    transform: translateY(-9px);
+  }
+  10% {
+    transform: translateY(-9px) rotate(17deg);
+  }
+  15% {
+    transform: translateY(-9px) rotate(-17deg);
+  }
+  20% {
+    transform: translateY(-9px) rotate(17deg);
+  }
+  25% {
+    transform: translateY(-9px) rotate(-17deg);
+  }
+  30% {
+    transform: translateY(0) rotate(0);
+  }
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes animate {
+  10% {
+    transform: scale(1, 0.002);
+  }
+  35% {
+    transform: scale(0.2, 0.002);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.2, 0.002);
+    opacity: 0;
+  }
+  85% {
+    transform: scale(1, 0.002);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes buttonColor {
+  from {
+    background-color: rgba(170, 255, 0, 0.616);
+  }
+  to {
+    background-color: rgba(173, 255, 8, 0.987);
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .page__description h1 {
+    margin-top: 100px;
+  }
 }
