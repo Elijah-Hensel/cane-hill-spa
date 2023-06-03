@@ -98,6 +98,7 @@ html {
   letter-spacing: 1px;
   padding: 10px 15px;
   margin-right: 20px;
+  width: 5em;
 }
 
 .btn_nav:hover,
