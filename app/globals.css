@@ -1,8 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 /* reset */
 *,
@@ -25,11 +24,11 @@ html {
 }
 
 #hero-home {
-  background-image: url("./assets/images/hero-image.jpg");
+  background-image: url("/images/hero-image.jpg");
 }
 
 #hero-merch {
-  background-image: url("./assets/images/merch.jpg");
+  background-image: url("/images/merch.jpg");
 }
 
 #hero-merch button {

@@ -1,6 +1,6 @@
 import React from "react"
 import Image from "next/image"
-import rotatingLogo from "../assets/images/rotatinglogo.gif"
+import rotatingLogo from "../../public/images/rotatinglogo.gif"
 import Navigation from "./Navigation"
 
 const Main = ({ images }) => {
